@@ -1,0 +1,22 @@
+Notes:
+1. Created and entry in /etc/auto.master to watch path /r5/home/eddie/Music and named a custom config file:
+
+[root@station14 ~]# grep -v ‘#’ /etc/auto.master
+/misc	/etc/auto.misc
+/r5/home/eddie/Music    /etc/auto.itunes
+
+/net	-hosts
+
+Notes:
+1. Created the custom config: /etc/auto.itunes
+2. Ensured the share name as ‘share’ as the path on server1 or the actual share name.
+3. Set it to ro and populated the mount device as the hostname:share_name
+
+[root@golgotha ~]# cat /etc/auto.itunes 
+iTunes  -fstype=cifs,rw,noperms,credentials=/home/eddie/.autofs.auth ://192.168.0.2/Media/Music/iTunes/iTunes\ Media
+
+Also note, the directories will not show up by default so you can update the timeout or the browsable option:
+
+[root@station14 ~]# grep -i browse /etc/sysconfig/autofs
+# BROWSE_MODE - maps are browsable by default.
+BROWSE_MODE="yes"
