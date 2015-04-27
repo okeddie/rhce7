@@ -9,8 +9,8 @@ Notes:
 
 Notes:
 1. Created the custom config: /etc/auto.itunes
-2. Ensured the share name as ‘share’ as the path on server1 or the actual share name.
-3. Set it to ro and populated the mount device as the hostname:share_name
+2. Ensured the share name as ‘share’ as the path on 192.168.0.2 or the actual share name.
+3. Set it to rw and populated the mount device as the hostname:share_name
 
 [root@golgotha ~]# cat /etc/auto.itunes 
 iTunes  -fstype=cifs,rw,noperms,credentials=/home/eddie/.autofs.auth ://192.168.0.2/Media/Music/iTunes/iTunes\ Media
